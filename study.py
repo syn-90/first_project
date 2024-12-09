@@ -1,7 +1,7 @@
 import sqlite3
 # make a table
-class sqlite:
-    def __init__(self , username , lastname , password):
+class sql:
+    def __int__(self , username , lastname , password):
         self.username = username
         self.lastname = lastname
         self.password = password
@@ -28,6 +28,3 @@ class sqlite:
         connection.commit()
         connection.close()
         return res
-
-
-# the end
