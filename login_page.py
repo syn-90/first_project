@@ -43,7 +43,7 @@ class login :
         hash_password = h.hexdigest()
         # check of username , lastname and password
         if username.replace(" ", "") != "" and lastname.replace(" ", "") != "" and password.replace(" ", "") != "":
-            user =study.sqlite(username,lastname,hash_password)
+            user =sql.sqlite(username,lastname,hash_password)
             res = user.select()
             if res != None:
                 messagebox.showinfo("ok" , "خوش امدید")
@@ -62,11 +62,3 @@ class login :
 
         else:
             messagebox.showerror("error", "لطفا نام و نام و خانوادگی و رمز عبور را وارد کنید")
-
-
-
-
-if __name__ == "__main__" :
-    window =Tk()
-    app = login(window)
-    window.mainloop()
