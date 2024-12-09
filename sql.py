@@ -28,6 +28,3 @@ class sqlite:
         connection.commit()
         connection.close()
         return res
-
-
-# the end
