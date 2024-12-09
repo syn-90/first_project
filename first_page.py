@@ -1,4 +1,4 @@
-
+# this is first page
 from tkinter import *
 import register_page
 import login_page

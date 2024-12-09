@@ -2,6 +2,7 @@ from tkinter import *
 import third_page
 import register_page
 import hashlib
+import study
 from tkinter import messagebox
 import sql
 class login :
@@ -42,7 +43,8 @@ class login :
         hash_password = h.hexdigest()
         # check of username , lastname and password
         if username.replace(" ", "") != "" and lastname.replace(" ", "") != "" and password.replace(" ", "") != "":
-            res =sql.select(username=username , lastname=lastname ,password=hash_password)
+            user =study.sqlite(username,lastname,hash_password)
+            res = user.select()
             if res != None:
                 messagebox.showinfo("ok" , "خوش امدید")
                 # leave this page

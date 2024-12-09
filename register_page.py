@@ -3,6 +3,7 @@ import third_page
 from tkinter import messagebox
 import sql
 import hashlib
+import study
 class register :
     def __init__(self , page):
         self.page = page
@@ -46,11 +47,12 @@ class register :
             # checking of username , lastname and password
             if username.replace(" " , "") != "" and lastname.replace(" " , "") != "" and password.replace(" " , "") != "":
                 # if this user is in database dont select that again
-                res = sql.select(username , lastname ,hash_password)
+                user = study.sqlite(username, lastname, hash_password)
+                res = user.select()
                 if res != None:
                     messagebox.showinfo("register" , "شما قبلا ثبت نام کردید")
                 if res == None:
-                    sql.insert(username, lastname,hash_password)
+                    user.insert()
                     messagebox.showinfo(title="yes", message="ثبت نام شما با موفقیت انجام شد")
                 # log in to third page
                 self.page.destroy()
@@ -66,6 +68,8 @@ if __name__ == "__main__" :
     window =Tk()
     app = register(window)
     window.mainloop()
+
+
 
 
 
